@@ -1,17 +1,18 @@
 $(document).ready(function() {
     $(".stats").hide();
+    let fighterChosen = false;
     let chosen = $(".fighter-wrapper").hasClass("chosen-one");
     let notChosen = !($(".fighter-wrapper").hasClass("chosen-one"));
 
     $(".fighter-wrapper").on("click", function () {
+        if (fighterChosen === false) {
         $(".stats").show();
         $("#choose-char").text("Your Character");
         $(this).addClass("chosen-one");
-        // console.log($(this).attr("title"));
         $(".enemies").append($('.fighter-wrapper:not(".chosen-one")'));
-
-
-        
+        fighterChosen = true;
+        }
+    });
 
 /*         $('.fighter-wrapper:not(".chosen-one")').appen
         if (chosen !== true) {
@@ -27,7 +28,6 @@ $(document).ready(function() {
 /*         if ($(".fighter-wrapper").data() !== "chosen-fighter") {
             $(".enemies").append($(".fighter-wrapper"));
         } */
-    });
 
 
 });
